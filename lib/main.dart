@@ -76,14 +76,14 @@ class _HomePageState extends State<HomePage> {
           customChild: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
+              const Text(
                 "AGE",
                 style: TextStyle(color: Myconstant.white, fontSize: 20),
               ),
               const SizedBox(height: 20),
               Text(
                 "${age.toString()} years.",
-                style: TextStyle(color: Myconstant.white, fontSize: 20),
+                style: const TextStyle(color: Myconstant.white, fontSize: 20),
               ),
               const SizedBox(height: 20),
               Row(
