@@ -1,4 +1,6 @@
 import 'package:bmi/my_constant.dart';
+import 'package:bmi/result.dart';
+import 'package:bmi/widgets/reuse_container.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -32,6 +34,8 @@ class _HomePageState extends State<HomePage> {
   int weight = 35;
   int heigth = 100;
   int age = 10;
+  var text = '';
+  var result;
   bool isClickedMale = false;
   bool isClickedFemale = false;
 
@@ -56,7 +60,14 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                calculateBmi();
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Result(bmi: result, result: text),
+                    ));
+              },
               child: const Text("CALCULATE"),
               style: ElevatedButton.styleFrom(
                   primary: Myconstant.dark,
@@ -65,6 +76,44 @@ class _HomePageState extends State<HomePage> {
             )
           ],
         ),
+      ),
+    );
+  }
+
+  void calculateBmi() {
+    var _height = heigth / 100;
+    result = weight / (_height * _height);
+    print(result);
+    if (result > 30) {
+      print("Obesity");
+      text = "Obesity";
+    } else if (result >= 25 && result <= 29.9) {
+      print("Overweight");
+      text = "Overweight";
+    } else if (result >= 18.5 && result <= 24.9) {
+      print("Normal weight");
+      text = "Normal weight";
+    } else {
+      print("Underweight");
+      text = "Underweight";
+    }
+
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text("Result"),
+          ],
+        ),
+        content: Text("BMI = $result $text"),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text("OK"),
+          )
+        ],
       ),
     );
   }
@@ -308,28 +357,6 @@ class _HomePageState extends State<HomePage> {
       margin: const EdgeInsets.all(15),
       decoration: BoxDecoration(
         color: Myconstant.primary,
-        borderRadius: BorderRadius.circular(15),
-      ),
-    );
-  }
-}
-
-class ReuseContainer extends StatelessWidget {
-  Color color;
-  Widget customChild;
-  ReuseContainer({
-    Key? key,
-    required this.color,
-    required this.customChild,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: customChild,
-      margin: const EdgeInsets.all(15),
-      decoration: BoxDecoration(
-        color: color,
         borderRadius: BorderRadius.circular(15),
       ),
     );
