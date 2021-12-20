@@ -11,9 +11,6 @@ class Result extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("TEST"),
-      ),
       body: SafeArea(
         child: Container(
           padding: const EdgeInsets.all(16),
@@ -45,11 +42,6 @@ class Result extends StatelessWidget {
                                     color: Myconstant.white, fontSize: 60),
                               ),
                               const SizedBox(height: 20),
-                              Text(
-                                result,
-                                style: const TextStyle(
-                                    color: Myconstant.white, fontSize: 30),
-                              ),
                             ],
                           ),
                         ),
@@ -57,7 +49,15 @@ class Result extends StatelessWidget {
                     ],
                   ),
                 ),
-                ElevatedButton(onPressed: () {}, child: Text("Calculate Again"))
+                ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      primary: Myconstant.dark,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                    ),
+                    onPressed: () => Navigator.pop(context),
+                    child: Text("Calculate Again"))
               ],
             ),
           ),

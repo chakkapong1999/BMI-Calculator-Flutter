@@ -98,7 +98,7 @@ class _HomePageState extends State<HomePage> {
       text = "Underweight";
     }
 
-    showDialog(
+    /*showDialog(
       context: context,
       builder: (context) => AlertDialog(
         title: Row(
@@ -115,7 +115,7 @@ class _HomePageState extends State<HomePage> {
           )
         ],
       ),
-    );
+    );*/
   }
 
   Expanded buildAge() {
