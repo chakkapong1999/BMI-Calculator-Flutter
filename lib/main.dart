@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: Myconstant.light,
       ),
-      home: HomePage(),
+      home: const HomePage(),
     );
   }
 }
@@ -157,7 +157,7 @@ class _HomePageState extends State<HomePage> {
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       primary: Myconstant.light,
-                      shape: CircleBorder(),
+                      shape: const CircleBorder(),
                     ),
                     child: const Icon(
                       Icons.remove,
@@ -173,7 +173,7 @@ class _HomePageState extends State<HomePage> {
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       primary: Myconstant.light,
-                      shape: CircleBorder(),
+                      shape: const CircleBorder(),
                     ),
                     child: const Icon(
                       Icons.add,
@@ -199,14 +199,14 @@ class _HomePageState extends State<HomePage> {
           customChild: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
+              const Text(
                 "WEIGHT",
                 style: TextStyle(color: Myconstant.white, fontSize: 20),
               ),
               const SizedBox(height: 20),
               Text(
                 "${weight.toString()} kg.",
-                style: TextStyle(color: Myconstant.white, fontSize: 20),
+                style: const TextStyle(color: Myconstant.white, fontSize: 20),
               ),
               const SizedBox(height: 20),
               Row(
@@ -215,7 +215,7 @@ class _HomePageState extends State<HomePage> {
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       primary: Myconstant.light,
-                      shape: CircleBorder(),
+                      shape: const CircleBorder(),
                     ),
                     child: const Icon(
                       Icons.remove,
@@ -231,7 +231,7 @@ class _HomePageState extends State<HomePage> {
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       primary: Myconstant.light,
-                      shape: CircleBorder(),
+                      shape: const CircleBorder(),
                     ),
                     child: const Icon(
                       Icons.add,
@@ -267,7 +267,7 @@ class _HomePageState extends State<HomePage> {
                   const SizedBox(height: 20),
                   Text(
                     "${heigth.toString()} cm.",
-                    style: TextStyle(fontSize: 20, color: Myconstant.white),
+                    style: const TextStyle(fontSize: 20, color: Myconstant.white),
                   ),
                   const SizedBox(height: 15),
                   SliderTheme(

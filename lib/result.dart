@@ -19,7 +19,7 @@ class Result extends StatelessWidget {
               children: [
                 const Text(
                   "Your Result",
-                  style: const TextStyle(color: Myconstant.white, fontSize: 40),
+                  style: TextStyle(color: Myconstant.white, fontSize: 40),
                 ),
                 Expanded(
                   child: Row(
@@ -57,7 +57,7 @@ class Result extends StatelessWidget {
                       ),
                     ),
                     onPressed: () => Navigator.pop(context),
-                    child: Text("Calculate Again"))
+                    child: const Text("Calculate Again"))
               ],
             ),
           ),
