@@ -62,11 +62,6 @@ class _HomePageState extends State<HomePage> {
             ElevatedButton(
               onPressed: () {
                 calculateBmi();
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => Result(bmi: result, result: text),
-                    ));
               },
               child: const Text("CALCULATE"),
               style: ElevatedButton.styleFrom(
@@ -84,38 +79,59 @@ class _HomePageState extends State<HomePage> {
     var _height = heigth / 100;
     result = weight / (_height * _height);
     print(result);
-    if (result > 30) {
-      print("Obesity");
-      text = "Obesity";
-    } else if (result >= 25 && result <= 29.9) {
-      print("Overweight");
-      text = "Overweight";
-    } else if (result >= 18.5 && result <= 24.9) {
-      print("Normal weight");
-      text = "Normal weight";
-    } else {
-      print("Underweight");
-      text = "Underweight";
-    }
-
-    /*showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text("Result"),
+    if (!isClickedMale && !isClickedFemale) {
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              Icon(
+                Icons.warning,
+                color: Colors.red,
+                size: 40,
+              ),
+            ],
+          ),
+          content: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              Text(
+                "Please select your gender.",
+                style: TextStyle(fontSize: 20),
+              ),
+            ],
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text("OK"),
+            )
           ],
         ),
-        content: Text("BMI = $result $text"),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text("OK"),
-          )
-        ],
-      ),
-    );*/
+      );
+      return;
+    } else {
+      if (result > 30) {
+        print("Obesity");
+        text = "Obesity";
+      } else if (result >= 25 && result <= 29.9) {
+        print("Overweight");
+        text = "Overweight";
+      } else if (result >= 18.5 && result <= 24.9) {
+        print("Normal weight");
+        text = "Normal weight";
+      } else {
+        print("Underweight");
+        text = "Underweight";
+      }
+
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => Result(bmi: result, result: text),
+          ));
+    }
   }
 
   Expanded buildAge() {
