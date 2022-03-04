@@ -1,4 +1,4 @@
-import 'package:bmi/my_constant.dart';
+import 'package:bmi/constant/my_constant.dart';
 import 'package:bmi/result.dart';
 import 'package:bmi/widgets/reuse_container.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'BMI Calculator',
       theme: ThemeData(
-        scaffoldBackgroundColor: Myconstant.light,
+        scaffoldBackgroundColor: MyConstant.light,
       ),
       home: const HomePage(),
     );
@@ -32,7 +32,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int weight = 35;
-  int heigth = 100;
+  int height = 100;
   int age = 10;
   var text = '';
   var result;
@@ -44,7 +44,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("BMI Calculator"),
-        backgroundColor: Myconstant.dark,
+        backgroundColor: MyConstant.dark,
       ),
       body: SafeArea(
         child: Column(
@@ -65,7 +65,7 @@ class _HomePageState extends State<HomePage> {
               },
               child: const Text("CALCULATE"),
               style: ElevatedButton.styleFrom(
-                  primary: Myconstant.dark,
+                  primary: MyConstant.dark,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15))),
             )
@@ -76,7 +76,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   void calculateBmi() {
-    var _height = heigth / 100;
+    var _height = height / 100;
     result = weight / (_height * _height);
     print(result);
     if (!isClickedMale && !isClickedFemale) {
@@ -137,18 +137,18 @@ class _HomePageState extends State<HomePage> {
   Expanded buildAge() {
     return Expanded(
       child: ReuseContainer(
-          color: Myconstant.primary,
+          color: MyConstant.primary,
           customChild: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
                 "AGE",
-                style: TextStyle(color: Myconstant.white, fontSize: 20),
+                style: TextStyle(color: MyConstant.white, fontSize: 20),
               ),
               const SizedBox(height: 20),
               Text(
                 "${age.toString()} years.",
-                style: const TextStyle(color: Myconstant.white, fontSize: 20),
+                style: const TextStyle(color: MyConstant.white, fontSize: 20),
               ),
               const SizedBox(height: 20),
               Row(
@@ -156,12 +156,12 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      primary: Myconstant.light,
+                      primary: MyConstant.light,
                       shape: const CircleBorder(),
                     ),
                     child: const Icon(
                       Icons.remove,
-                      color: Myconstant.white,
+                      color: MyConstant.white,
                     ),
                     onPressed: () {
                       setState(() {
@@ -172,12 +172,12 @@ class _HomePageState extends State<HomePage> {
                   ),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      primary: Myconstant.light,
+                      primary: MyConstant.light,
                       shape: const CircleBorder(),
                     ),
                     child: const Icon(
                       Icons.add,
-                      color: Myconstant.white,
+                      color: MyConstant.white,
                     ),
                     onPressed: () {
                       setState(() {
@@ -195,18 +195,18 @@ class _HomePageState extends State<HomePage> {
   Expanded buildWeight() {
     return Expanded(
       child: ReuseContainer(
-          color: Myconstant.primary,
+          color: MyConstant.primary,
           customChild: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
                 "WEIGHT",
-                style: TextStyle(color: Myconstant.white, fontSize: 20),
+                style: TextStyle(color: MyConstant.white, fontSize: 20),
               ),
               const SizedBox(height: 20),
               Text(
                 "${weight.toString()} kg.",
-                style: const TextStyle(color: Myconstant.white, fontSize: 20),
+                style: const TextStyle(color: MyConstant.white, fontSize: 20),
               ),
               const SizedBox(height: 20),
               Row(
@@ -214,12 +214,12 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      primary: Myconstant.light,
+                      primary: MyConstant.light,
                       shape: const CircleBorder(),
                     ),
                     child: const Icon(
                       Icons.remove,
-                      color: Myconstant.white,
+                      color: MyConstant.white,
                     ),
                     onPressed: () {
                       setState(() {
@@ -230,12 +230,12 @@ class _HomePageState extends State<HomePage> {
                   ),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      primary: Myconstant.light,
+                      primary: MyConstant.light,
                       shape: const CircleBorder(),
                     ),
                     child: const Icon(
                       Icons.add,
-                      color: Myconstant.white,
+                      color: MyConstant.white,
                     ),
                     onPressed: () {
                       setState(() {
@@ -256,33 +256,33 @@ class _HomePageState extends State<HomePage> {
         children: [
           Expanded(
             child: ReuseContainer(
-              color: Myconstant.primary,
+              color: MyConstant.primary,
               customChild: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text(
                     "HEIGHT",
-                    style: TextStyle(fontSize: 20, color: Myconstant.white),
+                    style: TextStyle(fontSize: 20, color: MyConstant.white),
                   ),
                   const SizedBox(height: 20),
                   Text(
-                    "${heigth.toString()} cm.",
-                    style: const TextStyle(fontSize: 20, color: Myconstant.white),
+                    "${height.toString()} cm.",
+                    style: const TextStyle(fontSize: 20, color: MyConstant.white),
                   ),
                   const SizedBox(height: 15),
                   SliderTheme(
                     data: SliderTheme.of(context).copyWith(
-                        activeTrackColor: Myconstant.white,
-                        inactiveTrackColor: Myconstant.dark,
+                        activeTrackColor: MyConstant.white,
+                        inactiveTrackColor: MyConstant.dark,
                         thumbShape:
                             const RoundSliderThumbShape(enabledThumbRadius: 15),
-                        thumbColor: Myconstant.light),
+                        thumbColor: MyConstant.light),
                     child: Slider(
                       min: 100,
                       max: 250,
-                      value: heigth.toDouble(),
+                      value: height.toDouble(),
                       onChanged: (double value) => setState(() {
-                        heigth = value.round();
+                        height = value.round();
                       }),
                     ),
                   ),
@@ -316,19 +316,19 @@ class _HomePageState extends State<HomePage> {
           });
         },
         child: ReuseContainer(
-          color: Myconstant.primary,
+          color: MyConstant.primary,
           customChild: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Icon(
                 Icons.female,
-                color: !isClickedFemale ? Myconstant.white : Myconstant.dark,
+                color: !isClickedFemale ? MyConstant.white : MyConstant.dark,
                 size: 80,
               ),
               const SizedBox(height: 10),
               const Text(
                 "FEMALE",
-                style: TextStyle(color: Myconstant.white),
+                style: TextStyle(color: MyConstant.white),
               )
             ],
           ),
@@ -347,19 +347,19 @@ class _HomePageState extends State<HomePage> {
           });
         },
         child: ReuseContainer(
-          color: Myconstant.primary,
+          color: MyConstant.primary,
           customChild: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Icon(
                 Icons.male,
-                color: !isClickedMale ? Myconstant.white : Myconstant.dark,
+                color: !isClickedMale ? MyConstant.white : MyConstant.dark,
                 size: 80,
               ),
               const SizedBox(height: 10),
               const Text(
                 "MALE",
-                style: TextStyle(color: Myconstant.white),
+                style: TextStyle(color: MyConstant.white),
               )
             ],
           ),
@@ -372,7 +372,7 @@ class _HomePageState extends State<HomePage> {
     return Container(
       margin: const EdgeInsets.all(15),
       decoration: BoxDecoration(
-        color: Myconstant.primary,
+        color: MyConstant.primary,
         borderRadius: BorderRadius.circular(15),
       ),
     );

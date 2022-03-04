@@ -1,4 +1,4 @@
-import 'package:bmi/my_constant.dart';
+import 'package:bmi/constant/my_constant.dart';
 import 'package:bmi/widgets/reuse_container.dart';
 import 'package:flutter/material.dart';
 
@@ -19,27 +19,27 @@ class Result extends StatelessWidget {
               children: [
                 const Text(
                   "Your Result",
-                  style: TextStyle(color: Myconstant.white, fontSize: 40),
+                  style: TextStyle(color: MyConstant.white, fontSize: 40),
                 ),
                 Expanded(
                   child: Row(
                     children: [
                       Expanded(
                         child: ReuseContainer(
-                          color: Myconstant.primary,
+                          color: MyConstant.primary,
                           customChild: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
                                 result,
                                 style: const TextStyle(
-                                    color: Myconstant.white, fontSize: 30),
+                                    color: MyConstant.white, fontSize: 30),
                               ),
                               const SizedBox(height: 20),
                               Text(
                                 bmi.toStringAsPrecision(4),
                                 style: const TextStyle(
-                                    color: Myconstant.white, fontSize: 60),
+                                    color: MyConstant.white, fontSize: 60),
                               ),
                               const SizedBox(height: 20),
                             ],
@@ -51,7 +51,7 @@ class Result extends StatelessWidget {
                 ),
                 ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      primary: Myconstant.dark,
+                      primary: MyConstant.dark,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15),
                       ),
